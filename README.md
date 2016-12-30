@@ -1,1 +1,1 @@
-# nextflow_prokka
+# Prokaryotic annotation
