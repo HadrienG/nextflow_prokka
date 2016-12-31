@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-params.genome = 'data/genome.fasta'
+params.genome = ''
 params.bioproject = 'PRJEBXXXXX'
 params.species = 'species'
 params.genus = 'genus'
@@ -64,7 +64,7 @@ process gff3toembl {
     """
         gff3_to_embl --genome_type 'circular' --classification 'prokka' \
         --output_filename ${locus_tag}.embl --translation_table 11 \
-        "$species $genus" $taxonomy $bioproject "$species $genus $strain" \
+        "$genus $species" $taxonomy $bioproject "$genus $species $strain" \
         $input
         gzip ${locus_tag}.embl
     """
