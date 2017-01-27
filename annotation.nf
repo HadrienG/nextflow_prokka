@@ -35,6 +35,9 @@ process prokka {
         file input from circular_genome
         val locus from locus_tag
         val bioproject from bioproject
+        val species from species
+        val genus from genus
+        val strain from strain
 
     output:
         file "${bioproject}/${locus_tag}.gff" into annotation_gff
@@ -42,7 +45,8 @@ process prokka {
 
     """
     prokka --compliant --centre SLU --outdir $bioproject \
-        --locustag $locus_tag --prefix $locus_tag \
+        --locustag $locus_tag --prefix $locus_tag --kingdom Bacteria \
+        --genus $genus --species $species --strain $strain --usegenus
         $input
     """
 }
