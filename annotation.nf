@@ -46,7 +46,7 @@ process prokka {
     """
     prokka --compliant --centre SLU --outdir $bioproject \
         --locustag $locus_tag --prefix $locus_tag --kingdom Bacteria \
-        --genus $genus --species $species --strain $strain --usegenus
+        --genus $genus --species $species --strain $strain --usegenus \
         $input
     """
 }
